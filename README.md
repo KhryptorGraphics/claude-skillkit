@@ -24,7 +24,7 @@
 
 ## What is Claude SkillKit?
 
-Claude SkillKit is a plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that provides a collection of **17 skills** and **7 subagents** designed to extend Claude's capabilities across content creation, engineering frameworks, security testing, and more.
+Claude SkillKit is a plugin for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that provides a collection of **21 skills** and **7 subagents** designed to extend Claude's capabilities across content creation, engineering frameworks, security testing, and more.
 
 At its core, SkillKit includes a **meta-skill** (`skillkit`) that lets you create new skills and subagents using a research-driven, validation-first workflow.
 
@@ -51,6 +51,10 @@ At its core, SkillKit includes a **meta-skill** (`skillkit`) that lets you creat
 | 15 | **readme-expert** | Create README files with anti-hallucination validation and codebase-grounded accuracy |
 | 16 | **red-teaming** | Adversarial security testing methodology for cybersecurity and AI/LLM systems |
 | 17 | **tinkering** | Safe experimentation framework with isolated sandboxes for prototyping and technical spikes |
+| 18 | **quick-spec** | Create implementation-ready technical specifications through conversational discovery and code investigation |
+| 19 | **pre-deploy-checklist** | Intelligent pre-deployment QA checklist generator with parallel domain subagent analysis |
+| 20 | **been-there-done-that** | Document developer progress objectively after sprints with git session detection and factual logging |
+| 21 | **adversarial-review** | Adversarial review protocol with mandatory bug quota, reality validation, and structured resolution paths |
 
 ---
 
@@ -207,7 +211,11 @@ claude-skillkit/
 │   ├── baby-education/        # ELI5 explanations
 │   ├── readme-expert/         # README creation & validation
 │   ├── red-teaming/           # Security red teaming
-│   └── tinkering/             # Experimentation sandbox framework
+│   ├── tinkering/             # Experimentation sandbox framework
+│   ├── quick-spec/            # Technical spec creation
+│   ├── pre-deploy-checklist/  # Pre-deployment QA checklist
+│   ├── been-there-done-that/  # Developer progress logging
+│   └── adversarial-review/    # Adversarial review protocol
 ├── agents/
 │   ├── seo-manager.md
 │   ├── creative-copywriter.md
