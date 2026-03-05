@@ -12,19 +12,31 @@ description: "Usage guide for test_generator.py - Auto-generate comprehensive te
 
 ---
 
+## Deprecation Notice (v2)
+
+Legacy structural-only mode (running `test_generator.py` without `--behavioral`) is deprecated in v2.
+
+Use v2 style instead:
+
+```bash
+python3 test_generator.py path/to/skill/ --behavioral --test-format pytest
+```
+
+---
+
 ## Quick Start
 
 ### Basic Usage
 
 ```bash
-# Standard coverage with pytest
-python test_generator.py path/to/skill/
+# v2 recommended (behavioral + pytest)
+python3 test_generator.py path/to/skill/ --behavioral --test-format pytest
 
 # Comprehensive coverage
-python test_generator.py path/to/skill/ --coverage comprehensive
+python3 test_generator.py path/to/skill/ --coverage comprehensive --behavioral --test-format pytest
 
 # Unittest format
-python test_generator.py path/to/skill/ --format unittest
+python3 test_generator.py path/to/skill/ --test-format unittest
 ```
 
 ### What Gets Generated
@@ -55,7 +67,7 @@ skill-directory/
 ### pytest (Default)
 
 ```bash
-python test_generator.py my-skill/ --format pytest
+python3 test_generator.py my-skill/ --test-format pytest
 ```
 
 Generates pytest-compatible test functions:
@@ -71,7 +83,7 @@ def test_01_capability_description():
 ### unittest
 
 ```bash
-python test_generator.py my-skill/ --format unittest
+python3 test_generator.py my-skill/ --test-format unittest
 ```
 
 Generates unittest.TestCase class:
@@ -87,7 +99,7 @@ class TestSkill(unittest.TestCase):
 ### plain
 
 ```bash
-python test_generator.py my-skill/ --format plain
+python3 test_generator.py my-skill/ --test-format plain
 ```
 
 Generates plain text test plan (no code).
@@ -123,7 +135,7 @@ For each capability:
 ### Example 1: JSON Converter Skill
 
 ```bash
-$ python test_generator.py json-converter/ --coverage standard
+$ python3 test_generator.py json-converter/ --coverage standard --test-format pytest
 
 Generating tests for json-converter/...
 Skill: json-converter
@@ -140,7 +152,7 @@ Test scenarios generated: 6
 ### Example 2: Comprehensive Testing
 
 ```bash
-$ python test_generator.py api-wrapper/ --coverage comprehensive
+$ python3 test_generator.py api-wrapper/ --coverage comprehensive --behavioral --test-format pytest
 
 Test scenarios generated: 15
   - P0 (Critical): 3
@@ -159,7 +171,7 @@ Create your SKILL.md with clear capability descriptions.
 ### Step 2: Generate Tests
 
 ```bash
-python test_generator.py my-skill/ --coverage standard
+python3 test_generator.py my-skill/ --coverage standard --behavioral --test-format pytest
 ```
 
 ### Step 3: Review Scenarios

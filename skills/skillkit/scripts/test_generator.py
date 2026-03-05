@@ -8,6 +8,10 @@ v1.2 Update: Parameter standardization
 - Renamed --output to --format (output style)
 - Backward compatibility maintained for --output (deprecated)
 
+v2 Update: Legacy mode deprecation
+- Structural-only generation (without --behavioral) is deprecated
+- Preferred: --behavioral with --test-format pytest
+
 References: File 12 (testing best practices)
 """
 
@@ -627,7 +631,7 @@ def main():
     parser.add_argument(
         '--behavioral',
         action='store_true',
-        help='Generate behavioral pressure tests'
+        help='Generate behavioral pressure tests (recommended in v2; legacy non-behavioral mode is deprecated)'
     )
 
     args = parser.parse_args()
@@ -643,6 +647,15 @@ def main():
         output_format = args.output
     else:
         output_format = args.format
+
+    # v2 deprecation: legacy structural-only mode
+    if not args.behavioral:
+        warnings.warn(
+            "Legacy structural-only test generation mode is deprecated in v2. "
+            "Use '--behavioral --test-format pytest' for v2 workflow.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
 
     try:
         generator = TestGenerator(
