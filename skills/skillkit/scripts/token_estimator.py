@@ -192,6 +192,48 @@ class TokenEstimator:
         )
         
         return scenarios
+
+    def estimate_behavioral_testing_cost(self, skill_type: str) -> Dict:
+        """
+        Estimate token cost for behavioral testing in full mode.
+
+        Costs:
+        - Per pressure test: ~2000 tokens
+        - Combined test: ~3000 tokens
+        - Total overhead: ~11,000 tokens
+        """
+        per_test = 2000
+        combined_test = 3000
+        num_tests = 4  # time, sunk_cost, authority, exhaustion
+        total = (per_test * num_tests) + combined_test
+
+        return {
+            "skill_type": skill_type,
+            "fast_mode_tokens": 0,
+            "full_mode_tokens": total,
+            "overhead": total,
+            "breakdown": {
+                "individual_tests": per_test * num_tests,
+                "combined_test": combined_test
+            },
+            "note": "Behavioral testing adds ~11k tokens but prevents skill failures"
+        }
+
+    def get_mode_recommendation(self, structural_tokens: int) -> str:
+        """Recommend workflow mode based on structural token budget."""
+        behavioral_cost = 11000
+
+        if structural_tokens < 2000:
+            return f"fast mode recommended (skill is small, {structural_tokens} tokens)"
+        if structural_tokens > 5000:
+            return (
+                "full mode recommended "
+                f"(skill is large, behavioral testing justifies +{behavioral_cost} tokens)"
+            )
+        return (
+            "either mode "
+            f"(structural: {structural_tokens}, behavioral overhead: {behavioral_cost})"
+        )
     
     # ========== COST CALCULATION ==========
     

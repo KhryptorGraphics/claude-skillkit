@@ -116,6 +116,8 @@ python decision_helper.py --show-criteria --format text
   "recommendation": "Strong Subagent",
   "score": -6,
   "confidence": 0.92,
+  "workflow_mode": "full",
+  "mode_reasoning": "Discipline-enforcing skills require behavioral validation",
   "reasoning": ["Multi-step process...", "Specialized personality..."],
   "token_analysis": {
     "skill_approach_tokens": 500,
@@ -126,6 +128,11 @@ python decision_helper.py --show-criteria --format text
   "references": {"conceptual": "File 02", ...}
 }
 ```
+
+**Mode selection logic:**
+- Score `>= 6` (Strong/Moderate Skill) + discipline keywords -> `full` mode
+- Score `<= -3` (Subagent) -> not applicable (use subagent creation)
+- Simple utility, no discipline requirement -> `fast` mode
 
 **Error:**
 ```json
