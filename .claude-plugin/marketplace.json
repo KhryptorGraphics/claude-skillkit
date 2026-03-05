@@ -1,21 +1,21 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-skillkit-marketplace",
-  "description": "Professional skill creation tools and curated collection of high-quality skills & subagents for Claude Code. Research-driven workflow with anti-hallucination validation.",
+  "description": "Professional skill creation with TDD workflow and behavioral validation. Includes dual-mode (fast/full), pressure testing, and quality gates.",
   "owner": {
     "name": "rfxlamia",
     "email": "rfxlamia@github.com"
   },
   "metadata": {
-    "version": "1.3.0",
-    "description": "Professional skill creation tools and curated collection of high-quality skills & subagents for Claude Code. Research-driven workflow with anti-hallucination validation."
+    "version": "2.0.0",
+    "description": "Skillkit v2 introduces dual-mode workflow (fast/full), behavioral pressure testing, TDD cycle support, and weighted quality scoring."
   },
   "plugins": [
     {
       "name": "skillkit-core",
-      "description": "Professional skill AND subagent creation with research-driven workflow. Features 12-step skill workflow, 8-step subagent workflow, 10 automation scripts, and multi-layer validation checkpoints for achieving 9.0/10+ quality scores.",
+      "description": "Professional skill and subagent creation with dual-mode workflow: 12-step fast mode and 15-step full mode with behavioral pressure testing and TDD integration.",
       "source": "./skills/skillkit",
-      "version": "1.3.0",
+      "version": "2.0.0",
       "author": {
         "name": "rfxlamia"
       },
@@ -33,7 +33,10 @@
         "anti-hallucination",
         "testing",
         "security",
-        "token-optimization"
+        "token-optimization",
+        "tdd",
+        "behavioral-testing",
+        "pressure-testing"
       ],
       "category": "development",
       "strict": false
