@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.0.0] - 2025-03-05
+
+### Added
+- **Workflow Modes**: Fast mode (original 12-step) and Full mode (15-step with TDD)
+- **Behavioral Testing**: `pressure_tester.py` for testing skill compliance under pressure
+- **Rationalization Catalog**: Pre-built tables for common agent rationalizations
+- **Quality Scoring v2**: 60/40 split (structural/behavioral) in full mode
+- **Mode Selection**: `--mode` flag across all tools
+- **TDD Integration**: RED-GREEN-REFACTOR cycle for skill creation
+
+### Changed
+- `decision_helper.py`: Now recommends workflow mode based on skill type
+- `init_skill.py`: Mode selection prompt during skill creation
+- `quality_scorer.py`: Added behavioral scoring dimension
+- `token_estimator.py`: Includes behavioral testing cost
+- `test_generator.py`: Generates behavioral pressure tests
+- SKILL.md: Updated to v2 workflow documentation
+
+### Migration Guide
+```bash
+# Existing skills continue to work (fast mode is default)
+# To use full mode:
+python3 scripts/init_skill.py my-skill --mode full
+```
+
 ## [1.3.0] - 2025-02-06
 
 ### Summary
