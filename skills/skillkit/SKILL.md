@@ -37,6 +37,11 @@ Sequential steps with checkpoints produce 9.0/10+ quality vs ad-hoc creation.
 
 Agent MUST detect or prompt for workflow mode before running the creation flow.
 
+**Stop Condition (Mandatory):**
+- If mode is not explicitly provided by user, agent MUST stop and ask:
+  "Do you want to use fast-mode or full mode?"
+- Agent MUST NOT continue creation workflow until user confirms the mode.
+
 | Mode | Steps | Validation | Quality Target | Time |
 |------|-------|------------|----------------|------|
 | **fast** | 12 | Structural only | >=9.0/10 | <10 min |
