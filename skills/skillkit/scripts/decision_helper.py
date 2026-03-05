@@ -296,11 +296,18 @@ class DecisionHelper:
 
         # If too many uncertain answers, return warning
         if uncertain_count >= self.MAX_UNCERTAIN_THRESHOLD:
+            mode_note = (
+                "Full mode includes pressure testing"
+                if mode == "full"
+                else "Use --mode full for TDD behavioral validation"
+            )
             return {
                 "status": "success",
                 "recommendation": "Uncertain - Need Explicit Answers",
                 "score": None,
                 "confidence": 0.5,
+                "workflow_mode": mode,
+                "mode_note": mode_note,
                 "reasoning": ["Too many questions could not be inferred from description"],
                 "inference_mode": True,
                 "inference_warning": f"Only {certain_count}/8 questions answered from keywords. {uncertain_count} questions uncertain.",
