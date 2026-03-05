@@ -13,6 +13,10 @@ __pycache__/
 
 # Test directories
 readme-expert-test/
+test/
+test-result/
+test-results/
+test_result/
 
 # plan
 docs/plans/
